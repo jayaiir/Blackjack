@@ -5,42 +5,50 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     // This is a blackjack card class 
-    private int value { get; set; }
-    private string suit { get; set; }
-    private string rank { get; set; }
-    private bool isAceHigh { get; set; }
+    protected int Value { get; set; }
+    protected string Suit { get; set; }
+    protected string Rank { get; set; }
+    protected bool IsAceHigh { get; set; }
     
     public Card(int value, string suit, string rank, bool isAceHigh)
     {
-        this.value = value;
-        this.suit = suit;
-        this.rank = rank;
-        this.isAceHigh = isAceHigh;
+        Value = value;
+        Suit = suit;
+        Rank = rank;
+        IsAceHigh = isAceHigh;
     }
 
     public int GetValue()
     {
-        return value;
+        return Value;
     }
 
     public void SetValue(int value)
     {
-        if(name == "Ace" &&  isAceHigh)
+        if(Rank == "Ace" &&  IsAceHigh)
         {
             if(value == 1)
             {
-                this.value = 11;
+                Value = 11;
             }
             else
             {
-                this.value = value;
+                Value = value;
             }
         }
         else
         {
-            this.value = value;
+            Value = value;
         }
-
     }
 
+    public string GetSuit()
+    {
+        return Suit;
+    }
+
+    public string GetRank()
+    {
+        return Rank;
+    }
 }

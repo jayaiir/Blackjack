@@ -10,10 +10,26 @@ public class CardObject : Card  // This class inherits from the Card class
     [SerializeField] private TextMesh[] cardText;
     [SerializeField] private GameObject[] cardSprites;
     [SerializeField] private Sprite[] cardSpriteArray;
+    [SerializeField] private int cardValue;
+    [SerializeField] private string cardSuit;
+    [SerializeField] private string cardRank;
+    [SerializeField] private bool cardIsAceHigh;
 
     public CardObject(int value, string suit, string rank, bool isAceHigh) : base(value, suit, rank, isAceHigh)
     {
-        // Constructor body (if needed)
+        
+    }
+
+    public void Initialize(int value, string suit, string rank, bool isAce)
+    {
+        this.Value = value;
+        this.Suit = suit;
+        this.Rank = rank;
+        this.IsAceHigh = isAce;
+        cardValue = value;
+        cardSuit = suit;
+        cardRank = rank;
+        cardIsAceHigh = isAce;
     }
 
     // this method will set the card object to the card name and suit visually
@@ -25,38 +41,27 @@ public class CardObject : Card  // This class inherits from the Card class
             // set the card's rank
             cardText[i].text = rank; 
 
-            if(suit == "Hearts")
+            if(suit == "Heart")
             {
                 cardText[i].color = Color.red;
-                cardSprites[i].GetComponent<Image>().sprite = cardSpriteArray[0];
+                cardSprites[i].GetComponent<SpriteRenderer>().sprite = cardSpriteArray[0];
             }
-            else if(suit == "Diamonds")
+            else if(suit == "Diamond")
             {
-                // set the card's suit
                 cardText[i].color = Color.red;
-                cardSprites[i].GetComponent<Image>().sprite = cardSpriteArray[1];
+                cardSprites[i].GetComponent<SpriteRenderer>().sprite = cardSpriteArray[1];
             }
-            else if(suit == "Clubs")
+            else if(suit == "Club")
             {
                 cardText[i].color = Color.black;
-                cardSprites[i].GetComponent<Image>().sprite = cardSpriteArray[2];
+                cardSprites[i].GetComponent<SpriteRenderer>().sprite = cardSpriteArray[2];
             }
-            else if(suit == "Spades")
+            else if(suit == "Spade")
             {
                 cardText[i].color = Color.black;
-                cardSprites[i].GetComponent<Image>().sprite = cardSpriteArray[3];
+                cardSprites[i].GetComponent<SpriteRenderer>().sprite = cardSpriteArray[3];
             }
         }
-
-        
-        
-
-
-
-      
     }
-
-
-
 
 }
