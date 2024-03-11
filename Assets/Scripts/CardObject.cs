@@ -7,29 +7,26 @@ using TMPro;
 public class CardObject : Card  // This class inherits from the Card class
 {
  
-    [SerializeField] private TextMesh[] cardText;
+    [SerializeField] private TMP_Text[] cardText;
     [SerializeField] private GameObject[] cardSprites;
     [SerializeField] private Sprite[] cardSpriteArray;
     [SerializeField] private int cardValue;
     [SerializeField] private string cardSuit;
     [SerializeField] private string cardRank;
-    [SerializeField] private bool cardIsAceHigh;
+    [SerializeField] private bool cardIsAce;
 
-    public CardObject(int value, string suit, string rank, bool isAceHigh) : base(value, suit, rank, isAceHigh)
+    public CardObject(int value, string suit, string rank, bool isAce) : base(value, suit, rank, isAce)
     {
         
     }
 
-    public void Initialize(int value, string suit, string rank, bool isAce)
+    public void Initialize(string suit, string rank, bool isAce)
     {
-        this.Value = value;
         this.Suit = suit;
         this.Rank = rank;
-        this.IsAceHigh = isAce;
-        cardValue = value;
+        this.IsAce = isAce;
         cardSuit = suit;
         cardRank = rank;
-        cardIsAceHigh = isAce;
     }
 
     // this method will set the card object to the card name and suit visually

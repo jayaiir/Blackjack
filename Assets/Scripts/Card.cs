@@ -8,38 +8,19 @@ public class Card : MonoBehaviour
     protected int Value { get; set; }
     protected string Suit { get; set; }
     protected string Rank { get; set; }
-    protected bool IsAceHigh { get; set; }
+    protected bool IsAce { get; set; }
     
-    public Card(int value, string suit, string rank, bool isAceHigh)
+    public Card(int value, string suit, string rank, bool isAce)
     {
         Value = value;
         Suit = suit;
         Rank = rank;
-        IsAceHigh = isAceHigh;
+        IsAce = isAce;
     }
 
     public int GetValue()
     {
         return Value;
-    }
-
-    public void SetValue(int value)
-    {
-        if(Rank == "Ace" &&  IsAceHigh)
-        {
-            if(value == 1)
-            {
-                Value = 11;
-            }
-            else
-            {
-                Value = value;
-            }
-        }
-        else
-        {
-            Value = value;
-        }
     }
 
     public string GetSuit()
